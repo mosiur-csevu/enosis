@@ -1,0 +1,47 @@
+using System;
+
+class MainClass {
+
+  public static void printSpace(int len) {
+    for(int j=0;j<len/2;j++)
+      Console.Write(" ");
+  }
+
+  public static void Main (string[] args) {
+    string str = "The name of our country is Bangladesh I am a proud citizen of my country I hope you have a great day Enjoy your life God Bless you";
+
+    str+=" ";
+
+    int window = 20;
+    string tmp="";
+    string word="";
+
+    for(int i=0;i<str.Length;i++) {
+      if(str[i]==' ') {
+        if(tmp.Length+word.Length>window) {
+          tmp = tmp.Trim();
+          printSpace(window-tmp.Length);
+          Console.Write(tmp);
+          Console.Write("\r\n"); 
+          tmp="";
+        }
+        tmp+=word+" ";
+        word="";
+
+      }
+      else {
+        word+=str[i];
+      }
+
+      if(i==str.Length-1) {
+        tmp = tmp.Trim();
+        printSpace(window-tmp.Length);
+        Console.WriteLine(tmp);
+        tmp="";
+        word="";
+      }
+    }
+    
+    
+  }
+}
